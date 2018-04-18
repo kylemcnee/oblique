@@ -3,6 +3,7 @@ package com.example.kylemcnee.oblique
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.google.gson.GsonBuilder
@@ -15,8 +16,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val text: TextView = findViewById(R.id.textView)
+        val button = findViewById<Button>(R.id.button)
 
         fetchCard()
+
+        button.setOnClickListener{
+            fetchCard()
+        }
+
 
 
     }

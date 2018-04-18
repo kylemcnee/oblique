@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Oblique</string>
+    <string name="URL">http://brianeno.needsyourhelp.org/draw</string>
 </resources>

@@ -11,3 +11,5 @@ Oblique Strategies was originally conceived as a deck of 2.8 in × 3.5 in printed
 
 
   [Oblique Strategies API]: <https://github.com/amonks/oblique-strategies-api>
+
+![Pat yourself on the back, you read alt text!](https://i.imgur.com/mgjiuJd.png)

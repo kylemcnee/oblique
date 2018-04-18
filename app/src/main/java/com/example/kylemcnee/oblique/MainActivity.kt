@@ -1,7 +1,10 @@
 package com.example.kylemcnee.oblique
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
+import android.widget.Toast
 import com.google.gson.GsonBuilder
 import okhttp3.*
 import java.io.IOException
@@ -11,8 +14,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val text: TextView = findViewById(R.id.textView)
 
         fetchCard()
+
+
     }
 
     fun fetchCard() {
@@ -32,6 +38,15 @@ class MainActivity : AppCompatActivity() {
 
                 val gson = GsonBuilder().create()
                 val obliqueCard = gson.fromJson(jsonBody, ObliqueCard::class.java)
+
+                val text: TextView = findViewById(R.id.textView)
+
+
+                this@MainActivity.runOnUiThread(java.lang.Runnable {
+                    text.text = obliqueCard.strategy
+                })
+
+
             }
 
             override fun onFailure(call: Call?, e: IOException?) {
@@ -40,8 +55,10 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
+
 }
 
 
 class ObliqueCard(val strategy: String)
+
 

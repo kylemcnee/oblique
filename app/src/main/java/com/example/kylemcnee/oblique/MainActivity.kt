@@ -2,6 +2,7 @@ package com.example.kylemcnee.oblique
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.google.gson.GsonBuilder
 import okhttp3.*
 import java.io.IOException
 
@@ -28,6 +29,9 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call?, response: Response?) {
                 val jsonBody = response?.body()?.string()
                 println(jsonBody)
+
+                val gson = GsonBuilder().create()
+                val obliqueCard = gson.fromJson(jsonBody, ObliqueCard::class.java)
             }
 
             override fun onFailure(call: Call?, e: IOException?) {
@@ -37,3 +41,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 }
+
+
+class ObliqueCard(val strategy: String)
+
